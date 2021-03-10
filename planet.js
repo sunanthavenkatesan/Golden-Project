@@ -1,30 +1,21 @@
-class Planet {
-    constructor(x, y, radius){
-
+class Planet{
+    constructor(x, y, radius) {
         var options = {
-            'restitution':0.8,
             'friction':1.0,
             'density':1.0
         }
-
-
         this.body = Bodies.circle(x, y, radius, options);
-
-        // this.x = 30
-        // this.y = 30
-        this.radius = radius
-
+        this.radius = radius;
         this.image = loadImage("images/planet.png");
-        
         World.add(world, this.body);
-    }
-
-    display(){
+      }
+      display(){
+        var angle = this.body.angle;
         push();
-        translate(this.body.position.x, this.body.position.y);
+        //translate(this.body.position.x, this.body.position.y);
+        //rotate(angle);
         imageMode(CENTER);
-        image(this.image, 30, 30, this.radius);
+        image(this.image, innerWidth/2, innerHeight/2, this.width, this.height);
         pop();
-    }
- 
+      }
 }
